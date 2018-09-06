@@ -55,7 +55,10 @@ jobs:
           environment:
             DOCKERFILE: ./tmp/build/Dockerfile
           command: IMAGE=$OAO_IMAGE:$CIRCLE_TAG ./tmp/build/docker_build.sh
-      - run: docker push $OAO_IMAGE:$CIRCLE_TAG
+      - run: |
+          docker push $OAO_IMAGE:$CIRCLE_TAG
+          docker tag $OAO_IMAGE:$CIRCLE_TAG $OAO_IMAGE:latest
+          docker push $OAO_IMAGE:latest
 
   deploy-release-rhcc:
     <<: *defaults
