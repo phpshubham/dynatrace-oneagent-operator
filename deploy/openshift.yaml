@@ -56,7 +56,7 @@ users:
 volumes:
 - '*'
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: dynatrace-oneagent-operator
@@ -109,7 +109,7 @@ rules:
   verbs:
   - update
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: dynatrace-oneagent-operator
@@ -125,7 +125,7 @@ roleRef:
   name: dynatrace-oneagent-operator
   apiGroup: rbac.authorization.k8s.io
 ---
-apiVersion: apiextensions.k8s.io/v1beta1
+apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: oneagents.dynatrace.com
